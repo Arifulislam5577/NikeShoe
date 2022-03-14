@@ -2,7 +2,7 @@ import React from "react";
 
 const ShoeGallery = () => {
   return (
-    <section className="py-5 shoe-Gallary  ">
+    <section className="py-10 shoe-Gallary  ">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-center justify-between">
           <div className="gallery">
@@ -11,8 +11,9 @@ const ShoeGallery = () => {
 
           <div className="gallery-text">
             <figure>
-              <h1 className="title text-3xl font-bold  ">
-                <span className="text-primary">Nike </span> Shoe
+              <h1 className="title text-5xl font-bold  ">
+                Nike
+                <span className="text-primary"> Shoe</span>
               </h1>
               <p className="py-4 text-slate-900">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi

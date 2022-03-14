@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="container">
         <div className="flex flex-col lg:flex-row  items-center justify-between lg:gap-5">
           <div className="hero-text w-full lg:w-1/2">
-            <h1 className="text-6xl font-bold tracking-tight	">
+            <h1 className="text-6xl font-bold tracking-tight leading-tight	">
               Start Anywhere <span className="text-primary">Where </span>
               All Alhletes Belong
             </h1>
