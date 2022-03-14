@@ -5,8 +5,15 @@
 body {
   font-family: "Raleway", sans-serif;
   background-color: #f1f1f1;
+  overflow-x: hidden;
 }
 
 .hero-img {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+}
+
+.gallary-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
