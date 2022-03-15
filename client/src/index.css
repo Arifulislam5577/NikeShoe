@@ -12,8 +12,17 @@ body {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
 
-.gallary-img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.offer {
+  background: url(../public/img/header-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media (min-width: 1020px) {
+  .hero,
+  .hero-img {
+    height: 100vh;
+    margin-top: -2rem;
+  }
 }

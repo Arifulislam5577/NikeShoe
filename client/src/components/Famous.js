@@ -1,21 +1,15 @@
 import React from "react";
 import { Fade, Zoom } from "react-reveal";
-const ShoeGallery = () => {
+const Famous = () => {
   return (
-    <section className="py-10 shoe-Gallary overflow-hidden ">
+    <section className="py-10 ">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-center justify-between">
-          <div className="gallery">
-            <Zoom>
-              <img src="./img/b-shoe.png" alt="shoe" />
-            </Zoom>
-          </div>
-
-          <Fade right>
+          <Fade left>
             <figure>
               <h1 className="title text-5xl font-bold  ">
-                Nike
-                <span className="text-primary"> Shoe</span>
+                Why We
+                <span className="text-primary"> Famous?</span>
               </h1>
               <p className="py-4 text-slate-900">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi
@@ -28,10 +22,15 @@ const ShoeGallery = () => {
               </button>
             </figure>
           </Fade>
+          <div className="gallery">
+            <Zoom>
+              <img src="./img/b-shoe.png" alt="shoe" />
+            </Zoom>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default ShoeGallery;
+export default Famous;
