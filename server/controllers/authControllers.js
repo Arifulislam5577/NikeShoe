@@ -15,7 +15,6 @@ export const signup = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      password: user.password,
       token: generateToken(user._id),
     });
   }
@@ -29,9 +28,10 @@ export const signin = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      isAdmin: user.isAdmin,
       token: generateToken(user._id),
     });
   } else {
-    res.status(201).json({ message: "Invalid email or password" });
+    res.status(400).json({ message: "Invalid email or password" });
   }
 });

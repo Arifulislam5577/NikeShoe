@@ -1,16 +1,18 @@
 import React, { useEffect } from "react";
 import { SpinnerGap } from "phosphor-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { packageAction } from "../redux/Action";
 
 const Package = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { loading, error, packages } = useSelector((state) => state.package);
 
   useEffect(() => {
     dispatch(packageAction());
   }, [dispatch]);
+
   return (
     <section className="py-10">
       <div className="container">
@@ -74,12 +76,14 @@ const Package = () => {
                       <span> ${pack.Price}</span>
                     </li>
                   </ul>
-                  <Link
-                    to={`/plan/${pack._id}`}
+                  <button
+                    onClick={() =>
+                      navigate(`/login?redirect=/plan/${pack._id}`)
+                    }
                     className="p-3 block hover:bg-slate-900 bg-slate-800 transition px-10 font-bold text-gray-50 my-3 rounded-full m-auto w-full"
                   >
                     Parchage Now
-                  </Link>
+                  </button>
                 </figure>
               );
             })

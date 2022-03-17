@@ -23,6 +23,7 @@ html,
 .gallery {
   background-image: url(https://res.cloudinary.com/dwrpcntox/image/upload/v1647486508/Shopping-cart/blob_pctzpx.svg);
   background-position: right;
+  background-size: 70%;
   background-repeat: no-repeat;
 }
 

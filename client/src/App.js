@@ -5,7 +5,7 @@ import Home from "./components/Pages/Home";
 import Login from "./components/Pages/Login";
 import Order from "./components/Pages/Order";
 import Signup from "./components/Pages/Signup";
-
+import PrivateRoute from "./components/PrivateRoute";
 function App() {
   return (
     <Router>
@@ -14,7 +14,14 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/plan/:id" element={<Order />} />
+        <Route
+          path="/plan/:id"
+          element={
+            <PrivateRoute>
+              <Order />
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <Footer />
     </Router>
