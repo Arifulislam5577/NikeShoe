@@ -1,32 +1,40 @@
 import React, { useState } from "react";
 import { SquaresFour } from "phosphor-react";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const myStyle = {
     height: "10vh",
     backgroundColor: "transparent",
   };
+  const location = useLocation();
 
   const [active, setActive] = useState(false);
   return (
-    <nav className="navbar relative flex items-center " style={myStyle}>
+    <nav className="navbar relative flex items-center p-5" style={myStyle}>
       <div className="container">
         <div className="flex items-center justify-between">
           <div className="logo-box">
             <h1 className="text-xl font-bold font-railway text-slate-900">
-              Nike<span className="text-primary">Shoe</span>
+              <Link to="/">
+                Nike<span className="text-primary">Shoe</span>
+              </Link>
             </h1>
           </div>
           <div className="lg:block hidden z-50">
-            <menu className="flex items-center justify-between gap-10 ">
-              <li className="text-sm font-bold  uppercase p-2 px-3 hover:bg-primary text-gray-50 transition duration-500	">
-                Home
+            <menu
+              className={`flex items-center justify-between gap-10 ${
+                location.pathname === "/" ? "text-gray-50" : "text-slate-900"
+              }`}
+            >
+              <li className="text-sm font-bold  uppercase p-2 px-3 hover:bg-primary hover:text-gray-50  transition duration-500	">
+                <Link to="/">Home</Link>
               </li>
-              <li className="text-sm font-bold  uppercase  p-2 px-3 hover:bg-primary text-gray-50 transition duration-500">
-                Plans
+              <li className="text-sm font-bold  uppercase  p-2 px-3 hover:bg-primary hover:text-gray-50  transition duration-500">
+                <Link to="#">Package</Link>
               </li>
-              <li className="text-sm font-bold  uppercase mr-5  p-2 px-3 bg-primary text-gray-50 transition duration-500">
-                Contact
+              <li className="text-sm font-bold text-gray-50 uppercase mr-5  p-2 px-3 bg-primary  transition duration-500">
+                <Link to="/login">Join Us</Link>
               </li>
             </menu>
           </div>
@@ -36,10 +44,14 @@ const Navbar = () => {
                 active ? "translate-x-0" : "translate-x-full"
               }`}
             >
-              <li className="text-sm font-bold  uppercase p-2 px-3	">Home</li>
-              <li className="text-sm font-bold  uppercase  p-2 px-3 ">Plans</li>
+              <li className="text-sm font-bold  uppercase p-2 px-3	">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="text-sm font-bold  uppercase  p-2 px-3 ">
+                <Link to="#">Package</Link>
+              </li>
               <li className="text-sm font-bold  uppercase   p-2 px-3">
-                Contact
+                <Link to="/login">Join Us</Link>
               </li>
             </menu>
           </div>

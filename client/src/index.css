@@ -6,8 +6,16 @@ body {
   font-family: "Raleway", sans-serif;
   background-color: #f1f1f1;
   overflow-x: hidden;
+  height: 100%;
 }
-
+html,
+#root {
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
 .hero-img {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }

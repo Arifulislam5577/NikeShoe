@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { SpinnerGap } from "phosphor-react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { packageAction } from "../redux/Action";
 
 const Package = () => {
   const dispatch = useDispatch();
   const { loading, error, packages } = useSelector((state) => state.package);
-
-  console.log(packages);
 
   useEffect(() => {
     dispatch(packageAction());
@@ -33,7 +32,7 @@ const Package = () => {
               return (
                 <figure
                   className="p-5 text-center  transition duration-300 shadow-md  border-t-4 border-t-primary text-slate-900 font-bold"
-                  key={pack.id}
+                  key={pack._id}
                 >
                   <div className="package-img  m-auto h-32">
                     <img
@@ -75,9 +74,12 @@ const Package = () => {
                       <span> ${pack.Price}</span>
                     </li>
                   </ul>
-                  <button className="p-3  hover:bg-slate-900 bg-slate-800 transition px-10 font-bold text-gray-50 my-3 rounded-full m-auto w-full">
+                  <Link
+                    to={`/plan/${pack._id}`}
+                    className="p-3 block hover:bg-slate-900 bg-slate-800 transition px-10 font-bold text-gray-50 my-3 rounded-full m-auto w-full"
+                  >
                     Parchage Now
-                  </button>
+                  </Link>
                 </figure>
               );
             })

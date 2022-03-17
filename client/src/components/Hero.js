@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from "react";
 import { Fade, Zoom } from "react-reveal";
 const Hero = () => {
@@ -16,9 +17,12 @@ const Hero = () => {
                 the weight of the shoes.A shoe built with purpose and to take
                 your game to the next level.
               </p>
-              <button className="p-3  bg-primary px-10 font-bold text-gray-50 my-3 rounded-full">
+              <Link
+                to="/login"
+                className="p-3 inline-block  bg-primary px-10 font-bold text-gray-50 my-3 rounded-full"
+              >
                 Join Us
-              </button>
+              </Link>
             </div>
           </Fade>
           <Fade right>
