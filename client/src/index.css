@@ -12,6 +12,12 @@ body {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
 
+.gallery {
+  background-image: url(https://res.cloudinary.com/dwrpcntox/image/upload/v1647486508/Shopping-cart/blob_pctzpx.svg);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
 .offer {
   background: url(../public/img/header-bg.jpg);
   background-size: cover;
@@ -24,5 +30,18 @@ body {
   .hero-img {
     height: 100vh;
     margin-top: -2rem;
+  }
+}
+
+.spinner {
+  animation: spin infinite 5s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

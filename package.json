@@ -8,6 +8,7 @@
     "start": "node server/app.js",
     "server": "nodemon server/app.js",
     "client": "npm start --prefix client",
+    "importPack": "node server/utils/seeder.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {

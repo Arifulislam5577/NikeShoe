@@ -34,6 +34,14 @@ const Form = () => {
               placeholder="Enter Your Business Deal Details"
             />
           </div>
+          <div className="mb-5 w-full">
+            <button
+              type="submit"
+              className="p-4 w-full bg-slate-900 uppercase text-gray-50"
+            >
+              submit
+            </button>
+          </div>
         </form>
       </div>
     </section>

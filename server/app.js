@@ -6,6 +6,7 @@ import cors from "cors";
 import { errorHandler } from "./middlewares/errorMiddleware.js";
 import authRouter from "./routes/authRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import packageRouter from "./routes/packageRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(express.json());
 // Routes
 app.use("/api/v1/user", authRouter);
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/package", packageRouter);
 
 app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
