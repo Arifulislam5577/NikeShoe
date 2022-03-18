@@ -2,6 +2,9 @@ import {
   PACKAGE_REQUEST,
   PACKAGE_SUCCESS,
   PACKAGE_FAIL,
+  SINGLE_PACKAGE_REQUEST,
+  SINGLE_PACKAGE_SUCCESS,
+  SINGLE_PACKAGE_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
@@ -12,7 +15,7 @@ import {
 } from "./Constants";
 import axios from "axios";
 
-// PACKAGE
+// PACKAGE ACTIONS
 export const packageAction = () => async (dispatch) => {
   dispatch({ type: PACKAGE_REQUEST });
   try {
@@ -21,6 +24,32 @@ export const packageAction = () => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: PACKAGE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.response,
+    });
+  }
+};
+
+export const singlePackageAction = (id) => async (dispatch, getState) => {
+  dispatch({ type: SINGLE_PACKAGE_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(`/api/v1/package/${id}`, config);
+    dispatch({ type: SINGLE_PACKAGE_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: SINGLE_PACKAGE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

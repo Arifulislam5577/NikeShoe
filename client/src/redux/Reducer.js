@@ -2,6 +2,9 @@ import {
   PACKAGE_REQUEST,
   PACKAGE_SUCCESS,
   PACKAGE_FAIL,
+  SINGLE_PACKAGE_REQUEST,
+  SINGLE_PACKAGE_SUCCESS,
+  SINGLE_PACKAGE_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
@@ -26,6 +29,27 @@ export const packageReducer = (state = { packages: [] }, action) => {
         packages: action.payload,
       };
     case PACKAGE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const singlePackageReducer = (state = {}, action) => {
+  switch (action.type) {
+    case SINGLE_PACKAGE_REQUEST:
+      return {
+        loading: true,
+      };
+    case SINGLE_PACKAGE_SUCCESS:
+      return {
+        loading: false,
+        pack: action.payload,
+      };
+    case SINGLE_PACKAGE_FAIL:
       return {
         loading: false,
         error: action.payload,

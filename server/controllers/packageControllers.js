@@ -10,3 +10,13 @@ export const packageReq = asyncHandler(async (req, res) => {
     res.status(404).json({ message: "Package Not Found" });
   }
 });
+
+export const singlePack = asyncHandler(async (req, res) => {
+  const pack = await PACKAGE.findById({ _id: req.params.id });
+
+  if (pack) {
+    res.status(200).json(pack);
+  } else {
+    res.status(404).json({ message: "Invalid Id" });
+  }
+});
