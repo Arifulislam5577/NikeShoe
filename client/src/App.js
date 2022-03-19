@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Pages/Home";
 import Login from "./components/Pages/Login";
 import Order from "./components/Pages/Order";
+import Profile from "./components/Pages/Profile";
 import Signup from "./components/Pages/Signup";
 import PrivateRoute from "./components/PrivateRoute";
 function App() {
@@ -19,6 +20,14 @@ function App() {
           element={
             <PrivateRoute>
               <Order />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <PrivateRoute>
+              <Profile />
             </PrivateRoute>
           }
         />

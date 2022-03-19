@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { SquaresFour } from "phosphor-react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const myStyle = {
@@ -8,6 +9,8 @@ const Navbar = () => {
     backgroundColor: "transparent",
   };
   const location = useLocation();
+
+  const { userInfo } = useSelector((state) => state.userLogin);
 
   const [active, setActive] = useState(false);
   return (
@@ -33,9 +36,15 @@ const Navbar = () => {
               <li className="text-sm font-bold  uppercase  p-2 px-3 hover:bg-primary hover:text-gray-50  transition duration-500">
                 <Link to="#">Package</Link>
               </li>
-              <li className="text-sm font-bold text-gray-50 uppercase mr-5  p-2 px-3 bg-primary  transition duration-500">
-                <Link to="/login">Join Us</Link>
-              </li>
+              {userInfo ? (
+                <li className="text-sm font-bold text-gray-50 uppercase mr-5  p-2 px-3 bg-primary  transition duration-500">
+                  <Link to="/profile">Profile</Link>
+                </li>
+              ) : (
+                <li className="text-sm font-bold text-gray-50 uppercase mr-5  p-2 px-3 bg-primary  transition duration-500">
+                  <Link to="/login">Join Us</Link>
+                </li>
+              )}
             </menu>
           </div>
           <div className="lg:hidden z-50  w-full">
@@ -50,9 +59,15 @@ const Navbar = () => {
               <li className="text-sm font-bold  uppercase  p-2 px-3 ">
                 <Link to="#">Package</Link>
               </li>
-              <li className="text-sm font-bold  uppercase   p-2 px-3">
-                <Link to="/login">Join Us</Link>
-              </li>
+              {userInfo ? (
+                <li className="text-sm font-bold  uppercase   p-2 px-3">
+                  <Link to="/profile">Profile</Link>
+                </li>
+              ) : (
+                <li className="text-sm font-bold  uppercase   p-2 px-3">
+                  <Link to="/login">Join Us</Link>
+                </li>
+              )}
             </menu>
           </div>
           <div className="hamburger z-50 mr-5 lg:hidden block ">

@@ -5,7 +5,7 @@ const Offer = () => {
     <section className="py-10 offer">
       <div className="container">
         <h1 className=" lg:text-5xl text-2xl uppercase font-bold  my-5   text-gray-50  ">
-          Large Package 10% OFF
+          Subscribe news letter
         </h1>
 
         <form>

@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         primary: "#ff0000",
       },
+      lineHeight: {
+        extra: "2.5",
+      },
     },
     container: {
       center: true,
