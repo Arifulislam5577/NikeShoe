@@ -57,7 +57,7 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li className="text-sm font-bold  uppercase  p-2 px-3 ">
-                <Link to="#">Package</Link>
+                <a href="#package">Package</a>
               </li>
               {userInfo ? (
                 <li className="text-sm font-bold  uppercase   p-2 px-3">

@@ -12,6 +12,12 @@ import {
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAIL,
   USER_SIGNOUT_SUCCESS,
+  ORDER_REQUEST,
+  ORDER_SUCCESS,
+  ORDER_FAIL,
+  MY_ORDER_REQUEST,
+  MY_ORDER_SUCCESS,
+  MY_ORDER_FAIL,
 } from "./Constants";
 
 // PACKAGE REDUCERS
@@ -96,6 +102,50 @@ export const signupReducer = (state = {}, action) => {
         userInfo: action.payload,
       };
     case USER_SIGNUP_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+// ORDER REDUCER
+
+export const orderReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ORDER_REQUEST:
+      return {
+        loading: true,
+      };
+    case ORDER_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+      };
+    case ORDER_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const userOrderReducer = (state = {}, action) => {
+  switch (action.type) {
+    case MY_ORDER_REQUEST:
+      return {
+        loading: true,
+      };
+    case MY_ORDER_SUCCESS:
+      return {
+        loading: false,
+        orders: action.payload,
+      };
+    case MY_ORDER_FAIL:
       return {
         loading: false,
         error: action.payload,

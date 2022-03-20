@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Fade, Zoom } from "react-reveal";
+import { OrderAction, signoutAction } from "../../redux/Action";
+import ErrorMessage from "../ErrorMessage";
+import Loader from "../Loader";
 const Profile = () => {
+  const dispatch = useDispatch();
+  const { userInfo } = useSelector((state) => state.userLogin);
+  const { orders, loading, error } = useSelector((state) => state.userOrder);
+  const handleLogout = () => {
+    dispatch(signoutAction());
+  };
+
+  useEffect(() => {
+    dispatch(OrderAction());
+  }, [dispatch]);
   return (
     <section className="">
       <Fade cascade top>
@@ -13,84 +27,93 @@ const Profile = () => {
             />
           </div>
           <div className="user-details flex flex-col gap-2">
-            <h1 className="font-bold text-3xl uppercase">Hi,Mr. Arif</h1>
-            <h3>arif1@gmail.com</h3>
-            <button className="p-1 hover:bg-slate-900 hover:border-slate-900 transition uppercase text-sm border-2 border-gray-50">
+            <h1 className="font-bold text-3xl uppercase">
+              Hi,Mr. {userInfo?.name}
+            </h1>
+            <h3>{userInfo?.email}</h3>
+            <button
+              className="p-1 hover:bg-slate-900 hover:border-slate-900 transition uppercase text-sm border-2 border-gray-50"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </div>
         </div>
       </Fade>
       <div className="container py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-10">
-          <Zoom>
-            <div className="border-l-4 border-primary box lg:col-span-1 w-full p-5 bg-gray-200   shadow-md hover:shadow transition">
-              <h1 className="text-3xl inline-block w-20 h-20 bg-slate-900 font-bold uppercase text-gray-50 text-center leading-extra -mt-28 shadow-2xl">
-                5
-              </h1>
-              <h1 className="text-xl my-2 font-bold uppercase text-slate-700">
-                Order
-              </h1>
-              <p className="text-sm">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi,
-                sunt asperiores! Suscipit velit hic nam.
-              </p>
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <ErrorMessage error={error} />
+        ) : (
+          <>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-10">
+              <Zoom>
+                <div className="border-l-4 border-primary box lg:col-span-1 w-full p-5 bg-gray-200   shadow-md hover:shadow transition">
+                  <h1 className="text-3xl inline-block w-20 h-20 bg-slate-900 font-bold uppercase text-gray-50 text-center leading-extra -mt-28 shadow-2xl">
+                    {orders?.length}
+                  </h1>
+                  <h1 className="text-xl my-2 font-bold uppercase text-slate-700">
+                    Order
+                  </h1>
+                  <p className="text-sm">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Modi, sunt asperiores! Suscipit velit hic nam.
+                  </p>
+                </div>
+              </Zoom>
+              <Zoom>
+                <div className="border-l-4 border-primary box lg:col-span-1 w-full p-5 bg-gray-200   shadow-md hover:shadow transition">
+                  <h1 className="text-3xl  inline-block w-28 h-20 bg-slate-900 font-bold uppercase text-gray-50 text-center leading-extra -mt-28 shadow-2xl">
+                    $
+                    {orders?.reduce(
+                      (prev, acc) => prev + acc.billingInfo.Price,
+                      0
+                    )}
+                  </h1>
+                  <h1 className="text-xl my-2 font-bold uppercase text-slate-700">
+                    total price
+                  </h1>
+                  <p className="text-sm">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Modi, sunt asperiores! Suscipit velit hic nam.
+                  </p>
+                </div>
+              </Zoom>
+              <Zoom>
+                <div className="border-l-4 border-primary box lg:col-span-1 w-full p-5 bg-gray-200   shadow-md hover:shadow transition">
+                  <h1 className="text-3xl inline-block w-20 h-20 bg-slate-900 font-bold uppercase text-gray-50 text-center leading-extra -mt-28 shadow-2xl">
+                    {orders?.length >= 3 ? "A+" : "A-"}
+                  </h1>
+                  <h1 className="text-xl my-2 font-bold uppercase text-slate-700">
+                    status
+                  </h1>
+                  <p className="text-sm">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Modi, sunt asperiores! Suscipit velit hic nam.
+                  </p>
+                </div>
+              </Zoom>
             </div>
-          </Zoom>
-          <Zoom>
-            <div className="border-l-4 border-primary box lg:col-span-1 w-full p-5 bg-gray-200   shadow-md hover:shadow transition">
-              <h1 className="text-3xl  inline-block w-28 h-20 bg-slate-900 font-bold uppercase text-gray-50 text-center leading-extra -mt-28 shadow-2xl">
-                $5000
-              </h1>
-              <h1 className="text-xl my-2 font-bold uppercase text-slate-700">
-                total price
-              </h1>
-              <p className="text-sm">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi,
-                sunt asperiores! Suscipit velit hic nam.
-              </p>
+            <div className="">
+              <h1 className="font-bold text-3xl uppercase mb-5">My Order</h1>
+
+              {orders?.map((order, index) => {
+                return (
+                  <ul
+                    className="flex items-center border-2 my-1 hover:bg-slate-900 transition hover:text-gray-50 border-gray-200 p-2 justify-between"
+                    key={order._id}
+                  >
+                    <li>{index + 1}</li>
+                    <li>{order._id}</li>
+                    <li>{order?.billingInfo?.Name}</li>
+                    <li>${order?.billingInfo?.Price}</li>
+                  </ul>
+                );
+              })}
             </div>
-          </Zoom>
-          <Zoom>
-            <div className="border-l-4 border-primary box lg:col-span-1 w-full p-5 bg-gray-200   shadow-md hover:shadow transition">
-              <h1 className="text-3xl inline-block w-20 h-20 bg-slate-900 font-bold uppercase text-gray-50 text-center leading-extra -mt-28 shadow-2xl">
-                A+
-              </h1>
-              <h1 className="text-xl my-2 font-bold uppercase text-slate-700">
-                status
-              </h1>
-              <p className="text-sm">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi,
-                sunt asperiores! Suscipit velit hic nam.
-              </p>
-            </div>
-          </Zoom>
-        </div>
-        <div className="">
-          <Fade>
-            <h1 className="font-bold text-3xl uppercase mb-5">My Order</h1>
-          </Fade>
-          <Fade bottom>
-            <ul className="flex items-center border-2 my-1 hover:bg-slate-900 transition hover:text-gray-50 border-gray-200 p-2 justify-between">
-              <li>1</li>
-              <li>34324defe335fdft55</li>
-              <li>Mini Package</li>
-              <li>$4600</li>
-            </ul>
-          </Fade>
-          <ul className="flex items-center border-2 my-1 hover:bg-slate-900 transition hover:text-gray-50 border-gray-200 p-2 justify-between">
-            <li>1</li>
-            <li>34324defe335fdft55</li>
-            <li>Mini Package</li>
-            <li>$4600</li>
-          </ul>
-          <ul className="flex items-center border-2 my-1 hover:bg-slate-900 transition hover:text-gray-50 border-gray-200 p-2 justify-between">
-            <li>1</li>
-            <li>34324defe335fdft55</li>
-            <li>Mini Package</li>
-            <li>$4600</li>
-          </ul>
-        </div>
+          </>
+        )}
       </div>
     </section>
   );

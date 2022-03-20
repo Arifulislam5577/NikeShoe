@@ -3,6 +3,8 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import {
   loginReducer,
+  userOrderReducer,
+  orderReducer,
   packageReducer,
   signupReducer,
   singlePackageReducer,
@@ -13,6 +15,8 @@ const rootReducers = combineReducers({
   userLogin: loginReducer,
   userSignup: signupReducer,
   singlePack: singlePackageReducer,
+  order: orderReducer,
+  userOrder: userOrderReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

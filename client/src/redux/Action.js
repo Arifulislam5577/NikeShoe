@@ -12,6 +12,12 @@ import {
   USER_SIGNUP_SUCCESS,
   USER_SIGNUP_FAIL,
   USER_SIGNOUT_SUCCESS,
+  ORDER_REQUEST,
+  ORDER_SUCCESS,
+  ORDER_FAIL,
+  MY_ORDER_REQUEST,
+  MY_ORDER_SUCCESS,
+  MY_ORDER_FAIL,
 } from "./Constants";
 import axios from "axios";
 
@@ -118,7 +124,70 @@ export const signupAction = (name, email, password) => async (dispatch) => {
 
 // USER SIGNOUT
 
-export const signoutReducer = () => async (dispatch) => {
+export const signoutAction = () => async (dispatch) => {
   dispatch({ type: USER_SIGNOUT_SUCCESS });
   localStorage.removeItem("userInfo");
+};
+
+// ORDER
+
+export const createOrderAction =
+  (shippingInfo, billingInfo) => async (dispatch, getState) => {
+    try {
+      dispatch({ type: ORDER_REQUEST });
+      const {
+        userLogin: { userInfo },
+      } = getState();
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+      const { data } = await axios.post(
+        "/api/v1/order",
+        { shippingInfo, billingInfo },
+        config
+      );
+      dispatch({ type: ORDER_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: ORDER_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.response,
+      });
+    }
+  };
+
+export const OrderAction = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: MY_ORDER_REQUEST });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(
+      "/api/v1/order",
+
+      config
+    );
+    dispatch({ type: MY_ORDER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: MY_ORDER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.response,
+    });
+  }
 };

@@ -19,7 +19,18 @@ html,
 .hero-img {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #0f172a;
+  outline: 1px solid #0f172a;
+}
 .gallery {
   background-image: url(https://res.cloudinary.com/dwrpcntox/image/upload/v1647486508/Shopping-cart/blob_pctzpx.svg);
   background-position: right;

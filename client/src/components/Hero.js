@@ -8,7 +8,7 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row  items-center justify-between lg:gap-5">
           <Fade bottom cascade>
             <div className="hero-text w-full lg:w-1/2 lg:order-1 order-2">
-              <h1 className="lg:text-6xl text-5xl font-bold tracking-tight leading-tight	">
+              <h1 className="lg:text-6xl text-5xl font-bold tracking-tight leading-snug	">
                 Start Anywhere <span className="text-primary">Where </span>
                 All Alhletes Belong
               </h1>

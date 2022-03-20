@@ -14,7 +14,7 @@ const Package = () => {
   }, [dispatch]);
 
   return (
-    <section className="py-10">
+    <section className="py-10" id="#package">
       <div className="container">
         <h2 className=" text-5xl  font-bold text-center mb-10   text-slate-900  ">
           Our <span className="text-primary">Package</span>
