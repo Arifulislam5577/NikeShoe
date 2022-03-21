@@ -15,6 +15,7 @@ export const signup = asyncHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      isAdmin: user.isAdmin,
       token: generateToken(user._id),
     });
   }
@@ -33,5 +34,15 @@ export const signin = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400).json({ message: "Invalid email or password" });
+  }
+});
+
+export const getAllUsers = asyncHandler(async (req, res) => {
+  const users = await USER.find();
+
+  if (users.length > 0) {
+    res.status(200).json(users);
+  } else {
+    res.status(404).json({ message: "User not found" });
   }
 });

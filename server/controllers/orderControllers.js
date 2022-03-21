@@ -26,3 +26,12 @@ export const userOrder = asyncHandler(async (req, res) => {
     res.status(400).json({ message: "No Order Found" });
   }
 });
+
+export const getAllOrders = asyncHandler(async (req, res) => {
+  const orders = await ORDER.find();
+  if (orders.length > 0) {
+    res.status(200).json(orders);
+  } else {
+    res.status(400).json({ message: "No Order Found" });
+  }
+});

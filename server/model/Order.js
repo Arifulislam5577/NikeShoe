@@ -16,6 +16,7 @@ const orderSchema = new mongoose.Schema(
       city: { type: String, required: true },
       zipcode: { type: String, required: true },
       houseNumber: { type: String, required: true },
+      isDelivered: { type: Boolean, default: false },
     },
 
     billingInfo: {

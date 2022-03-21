@@ -37,9 +37,15 @@ const Navbar = () => {
                 <Link to="#">Package</Link>
               </li>
               {userInfo ? (
-                <li className="text-sm font-bold text-gray-50 uppercase mr-5  p-2 px-3 bg-primary  transition duration-500">
-                  <Link to="/profile">Profile</Link>
-                </li>
+                userInfo?.isAdmin ? (
+                  <li className="text-sm font-bold text-gray-50 uppercase mr-5  p-2 px-3 bg-primary  transition duration-500">
+                    <Link to="/admin">Dashboard</Link>
+                  </li>
+                ) : (
+                  <li className="text-sm font-bold text-gray-50 uppercase mr-5  p-2 px-3 bg-primary  transition duration-500">
+                    <Link to="/profile">Profile</Link>
+                  </li>
+                )
               ) : (
                 <li className="text-sm font-bold text-gray-50 uppercase mr-5  p-2 px-3 bg-primary  transition duration-500">
                   <Link to="/login">Join Us</Link>
@@ -60,9 +66,15 @@ const Navbar = () => {
                 <a href="#package">Package</a>
               </li>
               {userInfo ? (
-                <li className="text-sm font-bold  uppercase   p-2 px-3">
-                  <Link to="/profile">Profile</Link>
-                </li>
+                userInfo?.isAdmin ? (
+                  <li className="text-sm font-bold  uppercase   p-2 px-3">
+                    <Link to="/admin">Dashboard</Link>
+                  </li>
+                ) : (
+                  <li className="text-sm font-bold  uppercase   p-2 px-3">
+                    <Link to="/profile">Profile</Link>
+                  </li>
+                )
               ) : (
                 <li className="text-sm font-bold  uppercase   p-2 px-3">
                   <Link to="/login">Join Us</Link>

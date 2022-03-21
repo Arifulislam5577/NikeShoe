@@ -108,6 +108,11 @@ const Profile = () => {
                     <li>{order._id}</li>
                     <li>{order?.billingInfo?.Name}</li>
                     <li>${order?.billingInfo?.Price}</li>
+                    <li>
+                      {order?.shippingInfo?.isDelivered
+                        ? "Delivered"
+                        : "Processing"}
+                    </li>
                   </ul>
                 );
               })}
