@@ -8,6 +8,11 @@ import {
   packageReducer,
   signupReducer,
   singlePackageReducer,
+  adminOrderReducer,
+  allUserReducer,
+  updateOrderReducer,
+  bigDealReducer,
+  allBigDealReducer,
 } from "./Reducer";
 
 const rootReducers = combineReducers({
@@ -17,6 +22,11 @@ const rootReducers = combineReducers({
   singlePack: singlePackageReducer,
   order: orderReducer,
   userOrder: userOrderReducer,
+  adminOrder: adminOrderReducer,
+  users: allUserReducer,
+  orderUpdate: updateOrderReducer,
+  bigDeal: bigDealReducer,
+  getBigDeal: allBigDealReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

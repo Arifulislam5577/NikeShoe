@@ -18,6 +18,22 @@ import {
   MY_ORDER_REQUEST,
   MY_ORDER_SUCCESS,
   MY_ORDER_FAIL,
+  ADMIN_ORDER_REQUEST,
+  ADMIN_ORDER_SUCCESS,
+  ADMIN_ORDER_FAIL,
+  ADMIN_USER_REQUEST,
+  ADMIN_USER_SUCCESS,
+  ADMIN_USER_FAIL,
+  ORDER_UPDATE_REQUEST,
+  ORDER_UPDATE_SUCCESS,
+  ORDER_UPDATE_FAIL,
+  ORDER_UPDATE_RESET,
+  BIG_DEAL_REQUEST,
+  BIG_DEAL_SUCCESS,
+  BIG_DEAL_FAIL,
+  ALL_BIG_DEAL_REQUEST,
+  ALL_BIG_DEAL_SUCCESS,
+  ALL_BIG_DEAL_FAIL,
 } from "./Constants";
 
 // PACKAGE REDUCERS
@@ -146,6 +162,117 @@ export const userOrderReducer = (state = {}, action) => {
         orders: action.payload,
       };
     case MY_ORDER_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const adminOrderReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ADMIN_ORDER_REQUEST:
+      return {
+        loading: true,
+      };
+    case ADMIN_ORDER_SUCCESS:
+      return {
+        loading: false,
+        orders: action.payload,
+      };
+    case ADMIN_ORDER_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const updateOrderReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ORDER_UPDATE_REQUEST:
+      return {
+        loading: true,
+      };
+    case ORDER_UPDATE_SUCCESS:
+      return {
+        loading: false,
+        success: true,
+      };
+    case ORDER_UPDATE_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    case ORDER_UPDATE_RESET:
+      return {};
+    default:
+      return state;
+  }
+};
+
+// GET ALL USER BY ADMIN
+
+export const allUserReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ADMIN_USER_REQUEST:
+      return {
+        loading: true,
+      };
+    case ADMIN_USER_SUCCESS:
+      return {
+        loading: false,
+        users: action.payload,
+      };
+    case ADMIN_USER_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+//BIG DEAL
+
+export const bigDealReducer = (state = {}, action) => {
+  switch (action.type) {
+    case BIG_DEAL_REQUEST:
+      return {
+        loading: true,
+      };
+    case BIG_DEAL_SUCCESS:
+      return {
+        loading: false,
+        deal: action.payload,
+      };
+    case BIG_DEAL_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const allBigDealReducer = (state = {}, action) => {
+  switch (action.type) {
+    case ALL_BIG_DEAL_REQUEST:
+      return {
+        loading: true,
+      };
+    case ALL_BIG_DEAL_SUCCESS:
+      return {
+        loading: false,
+        deals: action.payload,
+      };
+    case ALL_BIG_DEAL_FAIL:
       return {
         loading: false,
         error: action.payload,

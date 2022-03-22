@@ -1,10 +1,9 @@
 import mongoose from "mongoose";
 
 const dealSchema = new mongoose.Schema({
-  User: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "USER" },
-  Name: { type: String, required: true },
-  Company: { type: String, required: true },
-  Email: { type: Number, required: true },
+  name: { type: String, required: true },
+  companyName: { type: String, required: true },
+  email: { type: String, required: true },
   message: { type: String, required: true },
 });
 

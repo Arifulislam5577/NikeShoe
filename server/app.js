@@ -9,6 +9,7 @@ import userRouter from "./routes/userRoutes.js";
 import packageRouter from "./routes/packageRoutes.js";
 import paymentRoute from "./routes/paymentRoute.js";
 import orderRoute from "./routes/orderRoutes.js";
+import dealRoute from "./routes/dealsRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -26,6 +27,7 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/package", packageRouter);
 app.use("/api/v1/payment", paymentRoute);
 app.use("/api/v1/order", orderRoute);
+app.use("/api/v1/deal", dealRoute);
 
 app.use(errorHandler);
 const PORT = process.env.PORT || 5000;

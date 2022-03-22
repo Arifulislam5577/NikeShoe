@@ -35,3 +35,15 @@ export const getAllOrders = asyncHandler(async (req, res) => {
     res.status(400).json({ message: "No Order Found" });
   }
 });
+
+export const updateOrderDelivery = asyncHandler(async (req, res) => {
+  const order = await ORDER.findByIdAndUpdate(req.params.id);
+
+  if (order) {
+    order.shippingInfo.isDelivered = true;
+    await order.save();
+    res.status(200).json({ message: "Order updated successfully" });
+  } else {
+    res.status(400).json({ message: "No Order Upadate" });
+  }
+});
