@@ -33,6 +33,21 @@ app.use("/api/v1/payment", paymentRoute);
 app.use("/api/v1/order", orderRoute);
 app.use("/api/v1/deal", dealRoute);
 
+// --------------------------deployment------------------------------
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve("client", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+// --------------------------deployment------------------------------
+
 app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
