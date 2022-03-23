@@ -33,7 +33,7 @@ const Package = () => {
             packages?.map((pack) => {
               return (
                 <figure
-                  className="p-5 text-center  transition duration-300 shadow-md  border-t-4 border-t-primary text-slate-900 font-bold"
+                  className="p-5 text-center  transition duration-300 shadow-xl  border-t-4 border-t-primary text-slate-900 font-bold"
                   key={pack._id}
                 >
                   <div className="package-img  m-auto h-32">

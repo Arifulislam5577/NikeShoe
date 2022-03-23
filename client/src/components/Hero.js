@@ -8,8 +8,8 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row  items-center justify-between lg:gap-5">
           <Fade bottom cascade>
             <div className="hero-text w-full lg:w-1/2 lg:order-1 order-2">
-              <h1 className="lg:text-6xl text-5xl font-bold tracking-tight leading-snug	">
-                Start Anywhere <span className="text-primary">Where </span>
+              <h1 className="lg:text-6xl text-5xl font-bold tracking-tight leading-10	">
+                Start Anywhere <span className="text-primary ">Where </span>
                 All Alhletes Belong
               </h1>
               <p className="text-slate-900 my-3 text-base">
@@ -19,7 +19,7 @@ const Hero = () => {
               </p>
               <Link
                 to="/login"
-                className="p-3 inline-block  bg-primary px-10 font-bold text-gray-50 my-3 rounded-full"
+                className="p-3 bg-primary px-10 inline-block font-bold text-gray-50 my-3 rounded-full"
               >
                 Join Us
               </Link>

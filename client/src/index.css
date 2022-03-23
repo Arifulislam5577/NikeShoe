@@ -53,6 +53,15 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+@media (max-width: 1020px) {
+  .hero-img {
+    background: url(../public/img/blob.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+}
+
 .spinner {
   animation: spin infinite 5s linear;
 }
