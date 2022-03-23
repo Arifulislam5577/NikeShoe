@@ -18,7 +18,11 @@ mongoose.connect(process.env.MONGODB_URI, () => {
   process.env.NODE_ENV === "development" &&
     console.log("Database connection established");
 });
-app.use(morgan("tiny"));
+
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("tiny"));
+}
+
 app.use(cors());
 app.use(express.json());
 // Routes
