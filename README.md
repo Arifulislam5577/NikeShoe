@@ -12,13 +12,13 @@ Anyone can contact for a big deal with the big deal form.There is also an admin 
 
 
 ### Server-Side
-make sure you are in the root directory.
+make sure you are in the ```root``` directory.
 ```bash
 npm install or npm i
 ```
 
 ### Client-Side
-make sure you are in the nikeshoe/client directory.
+make sure you are in the``` nikeshoe/client``` directory.
 ```bash
 npm install or npm i
 ```
@@ -52,4 +52,4 @@ npm start
 
 Please make sure to update tests as appropriate.
 
-### Thank you
+```Thank you```
