@@ -34,10 +34,10 @@ npm start
 ### Frontend
 - React
 - Redux
-- Tailwind Css
 - Redux Thunk
 - Axios
 - React Reveal
+- Tailwind Css
 - React Router Dom v6
 - React Stripe Checkout
 
