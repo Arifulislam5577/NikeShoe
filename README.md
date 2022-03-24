@@ -1,11 +1,10 @@
 # NikeShoe
-
 Nike shoe is a small business website built by M.E.R.N stack. There are three different packages. Users can purchase any packages. If the user wants to purchase any package, she/he needs to log in first. But if the user has no previous account then she/he needs to create a new account. After creating an account or logging in, she/he needs to pay with a stripe payment gateway and purchase the selected package. user can see the order package which he was purchased before in his profile.
 
+<img src="https://res.cloudinary.com/dwrpcntox/image/upload/v1648113394/Shopping-cart/nikeshoe_dbtedl.png" width="100%"/>
 
-Anyone can contact for a big deal with the big deal form.
+Anyone can contact for a big deal with the big deal form.There is also an admin simple dashboard, where the admin can deliver the order and can see the total order, total user, and the custom order in the admin panel.
 
-There is also an admin simple dashboard, where the admin can deliver the order and can see the total order, total user, and the custom order in the admin panel.
 
 
 ## Run the Application
@@ -35,6 +34,7 @@ npm start
 ### Frontend
 - React
 - Redux
+- Tailwind Css
 - Redux Thunk
 - Axios
 - React Reveal
