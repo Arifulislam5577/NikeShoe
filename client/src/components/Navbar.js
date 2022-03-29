@@ -53,13 +53,13 @@ const Navbar = () => {
               )}
             </menu>
           </div>
-          <div className="lg:hidden z-50  w-full">
+          <div className="lg:hidden sm:block z-50  w-full">
             <menu
-              className={`absolute right-0 transition bg-slate-900 text-gray-50 mt-5 h-screen flex items-center duration-500 justify-center flex-col gap-10 w-1/2 ${
+              className={`absolute right-0 transition bg-slate-900 text-gray-50 mt-5 h-screen flex items-center duration-500 justify-start flex-col gap-10 w-1/2 ${
                 active ? "translate-x-0" : "translate-x-full"
               }`}
             >
-              <li className="text-sm font-bold  uppercase p-2 px-3	">
+              <li className="text-sm font-bold  uppercase p-2 px-3	mt-10">
                 <Link to="/">Home</Link>
               </li>
               <li className="text-sm font-bold  uppercase  p-2 px-3 ">
