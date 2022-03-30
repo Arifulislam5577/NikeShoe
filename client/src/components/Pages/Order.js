@@ -98,7 +98,7 @@ const Order = () => {
       <div className="container  py-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <Fade>
-            <div className="w-full lg:col-span-2 ">
+            <div className="w-full lg:col-span-2 lg:order-1 order-2">
               {orderError && (
                 <h1 className="py-5 text-center bg-slate-900 text-primary font-bold text-3xl uppercase">
                   {orderError}
@@ -209,8 +209,8 @@ const Order = () => {
             </div>
           </Fade>
           <Fade>
-            <div className="w-full flex flex-col justify-between lg:col-span-1 p-5 bg-gray-200  border-primary text-slate-900">
-              <h1 className="text-center uppercase text-2xl font-bold p-4 bg-slate-900 text-gray-50">
+            <div className="w-full flex flex-col gap-3 justify-between lg:col-span-1 lg:p-5   text-slate-900 lg:order-2 order-1">
+              <h1 className="text-center uppercase lg:text-2xl font-bold p-4 bg-slate-900 text-gray-50">
                 order summary
               </h1>
               <ul className="flex flex-col gap-2 slate-900">

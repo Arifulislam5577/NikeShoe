@@ -25,7 +25,7 @@ const Form = () => {
     <section className="py-10">
       <div className="container">
         {error && <ErrorMessage error={error} />}
-        <h2 className=" text-5xl  font-bold text-center mb-10   text-slate-900  ">
+        <h2 className=" lg:text-5xl text-4xl  font-bold text-center mb-10   text-slate-900  ">
           Big <span className="text-primary">Deal?</span>
         </h2>
         {deal && (

@@ -7,7 +7,7 @@ const Famous = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-center justify-between">
           <Fade left>
             <figure>
-              <h1 className="title text-5xl font-bold  ">
+              <h1 className="title lg:text-5xl text-4xl font-bold  ">
                 Why We
                 <span className="text-primary"> Famous?</span>
               </h1>

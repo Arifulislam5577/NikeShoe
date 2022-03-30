@@ -16,7 +16,7 @@ const Package = () => {
   return (
     <section className="py-10" id="#package">
       <div className="container">
-        <h2 className=" text-5xl  font-bold text-center mb-10   text-slate-900  ">
+        <h2 className=" lg:text-5xl text-4xl  font-bold text-center mb-10   text-slate-900  ">
           Our <span className="text-primary">Package</span>
         </h2>
 
@@ -33,7 +33,7 @@ const Package = () => {
             packages?.map((pack) => {
               return (
                 <figure
-                  className="p-5 text-center  transition duration-300 shadow-xl  border-t-4 border-t-primary text-slate-900 font-bold"
+                  className="p-5 text-center  transition duration-300 lg:shadow-xl  lg:border-t-4 border-2 lg:border-t-primary text-slate-900 font-bold"
                   key={pack._id}
                 >
                   <div className="package-img  m-auto h-32">

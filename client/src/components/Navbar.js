@@ -8,12 +8,26 @@ const Navbar = () => {
   const { userInfo } = useSelector((state) => state.userLogin);
 
   return (
-    <nav class="lg:bg-transparent bg-slate-900  px-2 sm:px-4 py-2.5 ">
+    <nav
+      class={` bg-slate-900  px-2 sm:px-4 py-2.5 ${
+        location.pathname === "/"
+          ? "text-gray-50 lg:bg-transparent"
+          : "text-gray-50 bg-slate-900"
+      } `}
+    >
       <div class="container flex flex-wrap justify-between items-center mx-auto   ">
         <Link to="/" class="flex items-center">
           <h1 className="text-xl font-bold font-railway text-slate-900">
             <Link to="/">
-              <span className="lg:text-slate-900 text-gray-50">Nike</span>
+              <span
+                className={`${
+                  location.pathname === "/"
+                    ? "lg:text-slate-900 text-gray-50"
+                    : " text-gray-50"
+                }`}
+              >
+                Nike
+              </span>
               <span className="text-primary">Shoe</span>
             </Link>
           </h1>
@@ -35,14 +49,12 @@ const Navbar = () => {
         </button>
         <div class="hidden w-full md:block md:w-auto z-50" id="mobile-menu">
           <ul
-            className={`flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium gap-5 ${
-              location.pathname === "/" ? "text-gray-50" : "text-slate-900"
-            }`}
+            className={`flex  flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium gap-5 `}
           >
-            <li className="text-sm font-bold  uppercase p-2 px-3 hover:bg-primary hover:text-gray-50  transition duration-500	">
+            <li className="text-sm font-bold  uppercase p-2 px-3 text-gray-50  transition duration-500	">
               <Link to="/">Home</Link>
             </li>
-            <li className="text-sm font-bold  uppercase  p-2 px-3 hover:bg-primary hover:text-gray-50  transition duration-500">
+            <li className="text-sm font-bold  uppercase  p-2 px-3 text-gray-50  transition duration-500">
               <Link to="#">Package</Link>
             </li>
             {userInfo ? (

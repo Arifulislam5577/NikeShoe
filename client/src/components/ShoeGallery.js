@@ -13,7 +13,7 @@ const ShoeGallery = () => {
 
           <Fade right>
             <figure>
-              <h1 className="title text-5xl font-bold  ">
+              <h1 className="title lg:text-5xl text-4xl font-bold  ">
                 Nike
                 <span className="text-primary"> Shoe</span>
               </h1>
