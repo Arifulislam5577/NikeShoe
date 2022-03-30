@@ -21,7 +21,7 @@ const Profile = () => {
         <div className=" flex items-center gap-5 justify-center bg-primary text-gray-50  py-10">
           <div className="user-img border-r-4 border-gray-50">
             <img
-              src="https://i.imgur.com/zLCYdR9.jpg"
+              src="https://res.cloudinary.com/dwrpcntox/image/upload/v1645614915/Shopping-cart/Untitled_design_shndgt.png"
               alt="user"
               className="w-20 h-20 rounded-full mr-5"
             />
@@ -101,7 +101,7 @@ const Profile = () => {
               {orders?.map((order, index) => {
                 return (
                   <ul
-                    className="flex items-center border-2 my-1 hover:bg-slate-900 transition hover:text-gray-50 border-gray-200 p-2 justify-between"
+                    className="flex lg:flex-row flex-col lg:items-center items-start gap-3 border-2 my-1 hover:bg-slate-900 transition hover:text-gray-50 border-gray-200 p-2 justify-between"
                     key={order._id}
                   >
                     <li>{index + 1}</li>
